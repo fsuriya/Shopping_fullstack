@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
 app.get('/user', (req, res) => {
     database.query(`select * from Account where id = ${req.query.id}`, {type: database.QueryTypes.select})
     .then(result => {
-        res.send(result[0]);
+        res.send(result[0][0]);
     })
     .catch(err => {
         console.log(err);
